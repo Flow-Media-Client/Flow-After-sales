@@ -1,0 +1,79 @@
+name: 激活码无法使用 / 验证失败
+description: 输入激活码后提示无效、过期、已被使用,或验证报错
+title: "[激活] "
+labels: ["activation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢提交售后单。请尽量补全以下字段,**完整信息能让我们一次性处理完**,不必反复来回。
+
+        ⚠️ **隐私提示**:激活码请打码后几位再贴(例:`TV-PSWD-VE8V-XXXX-XXXX`)。订单号可以完整贴。
+
+  - type: input
+    id: order-id
+    attributes:
+      label: 订单号
+      description: 从购买页确认邮件或 https://pay.ldxp.cn 订单中心找到
+      placeholder: 例:202605210001234
+    validations:
+      required: true
+
+  - type: input
+    id: activation-code
+    attributes:
+      label: 激活码(后几位打码)
+      placeholder: 例:TV-PSWD-VE8V-XXXX-XXXX
+    validations:
+      required: true
+
+  - type: textarea
+    id: error-message
+    attributes:
+      label: App 内的完整错误提示
+      description: 复制提示文字或粘贴截图均可
+      placeholder: |
+        例:
+        - 激活失败:激活码无效
+        - 激活失败:已达到最大设备数
+    validations:
+      required: true
+
+  - type: input
+    id: device
+    attributes:
+      label: 设备型号 + Android 版本
+      placeholder: 例:小米电视 6 OLED / Android 12
+    validations:
+      required: true
+
+  - type: input
+    id: app-version
+    attributes:
+      label: Flow 版本号
+      description: 在 设置 → 关于 中查看
+      placeholder: 例:1.2.3
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 你是怎么操作触发这个问题的?
+      placeholder: |
+        1. 打开 App,跳到授权页
+        2. 用遥控器输入激活码
+        3. 提交后提示 ...
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 确认
+      options:
+        - label: 我的激活码购自 https://pay.ldxp.cn/shop/ririsstore(其它渠道不在售后范围)
+          required: true
+        - label: 我已在贴出激活码时打码后几位
+          required: true
