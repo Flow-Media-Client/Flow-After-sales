@@ -1,0 +1,78 @@
+name: 重装 / 换机后授权恢复失败
+description: Restore 流程没能自动找回授权
+title: "[Restore] "
+labels: ["restore"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        正常情况下重装 Flow 会自动恢复授权(同一台物理设备,Restore 不消耗 Seat)。
+        如果你遇到了恢复失败,请填写以下信息。
+
+        ⚠️ **隐私提示**:激活码请打码后几位再贴。
+
+  - type: input
+    id: order-id
+    attributes:
+      label: 订单号 或 激活码(后几位打码)
+      placeholder: 例:202605210001234 或 TV-PSWD-VE8V-XXXX-XXXX
+    validations:
+      required: true
+
+  - type: input
+    id: device
+    attributes:
+      label: 设备型号 + Android 版本
+      placeholder: 例:小米电视 6 OLED / Android 12
+    validations:
+      required: true
+
+  - type: input
+    id: app-version
+    attributes:
+      label: Flow 版本号
+      placeholder: 例:1.2.3
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scenario
+    attributes:
+      label: 触发场景
+      options:
+        - 卸载后重装(同一台设备)
+        - 系统恢复出厂设置后
+        - 更换了新设备
+        - 系统升级 / 刷机后
+        - 其它
+    validations:
+      required: true
+
+  - type: textarea
+    id: error-message
+    attributes:
+      label: App 内的提示
+      description: Restore 失败时 App 显示了什么?截图或文字均可
+      placeholder: 例:Restore 失败:NO_ACTIVATION
+    validations:
+      required: true
+
+  - type: textarea
+    id: history
+    attributes:
+      label: 这台设备过去的授权情况
+      description: 之前是否在这台设备上成功激活过?大约什么时候?
+      placeholder: |
+        例:
+        - 2026-01 在这台设备上激活过,一直正常使用
+        - 上周升级 Android 系统后重启,App 提示需要重新激活
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 确认
+      options:
+        - label: 我已尝试过在 App 内重新打开授权页让其自动 Restore
+          required: true
+        - label: 我能确认这台设备之前曾使用过本激活码
+          required: true
