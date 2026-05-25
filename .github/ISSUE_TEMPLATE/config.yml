@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: App Bug / 崩溃 / 播放问题
+    url: https://github.com/Flow-Media-Client/Flow-release/issues/new
+    about: App 本体的问题不在售后处理范围,请到 Flow-release 反馈
+  - name: 功能建议 / 想法 / 求助
+    url: https://github.com/Flow-Media-Client/Flow-release/discussions
+    about: 想法、提问、经验分享请到 Flow-release Discussions
